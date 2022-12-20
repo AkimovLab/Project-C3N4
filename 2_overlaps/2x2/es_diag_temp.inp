@@ -41,16 +41,11 @@
         EIGENVALUES F
         NDIGITS 8
       &END
-      &PDOS 
-        APPEND T
-        COMPONENTS T
-        FILENAME c3n4_1x1
-      &END
       &MO_CUBES
-        NHOMO 4
-        NLUMO 4
-        WRITE_CUBE F
-        STRIDE 1 1 1
+        NHOMO 10
+        NLUMO 10
+        WRITE_CUBE T
+        STRIDE 2 2 2
       &END
       &MO_MOLDEN ON
         FILENAME    

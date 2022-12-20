@@ -43,17 +43,23 @@ params['is_spherical'] =  True
 # after the computaion is done for tha system
 params['remove_molden'] = True
 # Cube visualization using VMD
-params['cube_visualization'] = False
+params['cube_visualization'] = True
 if params['cube_visualization']:
     # The only parts that we will change in this template are loading the cubes and rendering the images.
-    params['vmd_input_template'] = '../vmd_cube_template.tcl'
-    params['states_to_plot'] = [509, 510, 511, 512, 513, 514, 515, 516]
-    params['plot_phase_corrected'] = True
+    params['vmd_input_template'] = '../vmd.tcl'
+    params['states_to_plot'] = list(range(512-9,512+11))
+    params['plot_phase_corrected'] = False #True
     params['vmd_exe'] = 'vmd'
     params['tachyon_exe'] = '/util/academic/vmd/1.9.2/lib/vmd/tachyon_LINUXAMD64'
-    params['x_pixels'] = 1024
-    params['y_pixels'] = 1024
+    params['x_pixels'] = 3500
+    params['y_pixels'] = 3500
     params['remove_cube'] = True
+    params['together_mode'] = True
+    params['image_format'] = 'bmp'
+    params['remove_cube'] = True
+    params['all_images'] = path + '/../all_images'
+
+
 # The results are stored in this folder
 params['res_dir'] = path + '/../res'
 params['all_pdosfiles'] = path + '/../all_pdosfiles'
@@ -64,7 +70,7 @@ params['cp2k_exe'] = '/projects/academic/cyberwksp21/Software/cp2k-intel/cp2k-9.
 params['cp2k_ot_input_template'] = path + '/../es_ot_temp.inp'
 params['cp2k_diag_input_template'] = path + '/../es_diag_temp.inp'
 # The trajectory xyz file path
-params['trajectory_xyz_filename'] = path + '/../C3N4_2x2_md-pos-1.xyz'
+params['trajectory_xyz_filename'] = path + '/../../../1_molecular_dynamics/2x2/c3n4_2x2_MD_xTB-pos-1.xyz'
 
 step2.run_cp2k_libint_step2(params)
 
